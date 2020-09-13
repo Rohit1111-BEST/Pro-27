@@ -15,8 +15,8 @@ class Rope{
     }
 
 display(){
-var pointA = this.chain.bodyA.position;
-var pointB = this.chain.bodyB.position;
+var pointA = this.rope.bodyA.position;
+var pointB = this.rope.bodyB.position;
 
     line(pointA.x,pointA.y,pointB.x,pointB.y);
 
