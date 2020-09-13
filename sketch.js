@@ -1,4 +1,3 @@
-
 const Engine = Matter.Engine;
 const World = Matter.World;
 const Bodies = Matter.Bodies;
@@ -23,11 +22,14 @@ function setup() {
 
 	//Create the Bodies Here.
 	roof=new Roof(260,300,200,10);
-	bobObject1=new Bob(220,400,20,0);
-	bobObject2=new Bob(240,400,20,0);
-	bobObject3=new Bob(260,400,20,0);
-	bobObject4=new Bob(280,400,20,0);
-	bobObject5=new Bob(300,400,20,0);
+
+	startBobPositionX=width/2;
+	startBobPositionY=height/4+500;
+	bobObject1=new Bob(startBobPositionX-bodyDiameter*2,startBobPositionY,bodyDiameter);
+	bobObject2=new Bob(startBobPositionX-bodyDiameter,startBobPositionY,bodyDiameter);
+	bobObject3=new Bob(startBobPositionX,startBobPositionY,bodyDiameter);
+	bobObject4=new Bob(startBobPositionX+bodyDiameter,startBobPositionY,bodyDiameter);
+	bobObject5=new Bob(startBobPositionX+bodyDiameter*2,startBobPositionY,bodyDiameter);
 	//bobObject6=new Bob(320,400,20,0);
 
 	rope1=new Rope(bobObject1.body,roof.body,-bodyDiameter*2,0)
@@ -67,4 +69,11 @@ function draw() {
 }
 
 
+function keyPressed() {
+	if (keyCode === UP_ARROW) {
+
+	  Matter.Body.applyForce(bobObject1.body,bobObject1.body.position,{x:-50,y:-45});
+
+	}
+}
 
